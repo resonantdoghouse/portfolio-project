@@ -17,7 +17,6 @@ gulp.task('default', ['styles', 'images', 'pug'], function() {
     gulp.watch('sass/**/*.scss', ['styles']);
     gulp.watch('*.pug', ['pug']);
     //gulp.watch('js/**/*.js', ['lint']);
-
     browserSync.init({
         server: './'
     });
@@ -119,7 +118,7 @@ gulp.task('images', function () {
 
 gulp.task('styles', function() {
     gulp.src('sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions']
         }))
