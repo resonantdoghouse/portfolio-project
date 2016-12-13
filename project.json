@@ -1,0 +1,34 @@
+{
+  "site_info": {
+    "name": "BCW",
+    "description": "A Responsive Portfolio",
+    "logo": "img/logo.svg",
+    "url": "http://buildcreativewebsites.com",
+    "urlname": "test",
+    "number_of_projects": 3,
+    "projects_image_name": "project",
+    "meta_description": "Portfolio project Udacity, resonsive images, gulp, bootstrap, jade, sass"
+  },
+
+  "project1": {
+    "title": "Cat App",
+    "description": "The sky calls to us concept of the number one?",
+    "description-long": "The sky calls to us concept of the number one? Rich in mystery courage of our questions kindling the energy hidden in matter hundreds of thousands at the edge of forever",
+    "url": "http://catKittyCat.com",
+    "urlname": "Cat Kitty Cat"
+  },
+  "project2": {
+    "title": "Unsplash Tool",
+    "description": "Sea of Tranquility dream of the mind's eye.",
+    "description-long": "Sea of Tranquility dream of the mind's eye, vanquish the impossible rings of Uranus. Prime number, rings of Uranus, Jean-François Champollion finite but unbounded brain is the seed of intelligence?",
+    "url": "http://testinggrounds.info/unsplash/",
+    "urlname": "Unsplash ImageTool"
+  },
+  "project3": {
+    "title": "FingerBoard",
+    "description": "Apollonius of Perga rich in heavy atoms.",
+    "description-long": "Apollonius of Perga rich in heavy atoms. Citizens of distant epochs? Prime number Apollonius of Perga, how far away decipherment worldlets.",
+    "url": "http://testinggrounds.info/fingerboard/fretboard.html",
+    "urlname": "FingerBoard Chart"
+  }
+}

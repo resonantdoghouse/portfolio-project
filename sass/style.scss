@@ -1,0 +1,167 @@
+
+// Colors
+$blue: #02b3e4;
+$lightBlue: #97D6DE;
+$charcoal: #2d3c49;
+$grey: #7d97ad;
+$white: #fff;
+
+@mixin v-center(){
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin text-stroke($color){
+  text-shadow:
+  -1px -1px 0 $color,
+  1px -1px 0 $color,
+  -1px 1px 0 $color,
+  1px 1px 0 $color;
+}
+
+.grey-hr {
+  border: 0;
+  background: $grey;
+  height:3px;
+  margin: 1% 0;
+}
+
+// section, article, aside, footer, header, nav, hgroup {
+//   display:block;
+// }
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: $charcoal;
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+a {
+  color: $blue;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.text-muted {
+	color: $grey;
+}
+
+.text-thin {
+	font-weight: 100;
+}
+
+.title-super {
+	font-size: 60px;
+  font-weight:300;
+}
+
+.title-logo {
+	margin-top: 20px;
+	height: 100px;
+	max-width: 100%;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  picture {
+    backface-visibility: hidden;
+    transition: filter 1s;
+  }
+  &:hover {
+    picture {
+      filter: contrast(2);
+    }
+    .banner-text {
+      color: $white;
+      h1 {
+        color: $lightBlue;
+        @include text-stroke($charcoal);
+      }
+      .glyphicon {
+        color: $lightBlue;
+      }
+    }
+  }
+  .banner-text {
+    cursor: pointer;
+    @include v-center;
+    transition: all 1.5s;
+    width: 100%;
+    text-align: center;
+    h1 {
+      text-rendering: optimizeLegibility;
+      @include text-stroke(rgba($lightBlue, .25%));
+      transition: color 1s;
+      font-size: 3em;
+      color: $charcoal;
+    }
+    .glyphicon {
+      @include text-stroke(rgba($lightBlue, .25%));
+      transition: color .5s;
+      color: $charcoal;
+      font-size: 3em;
+      &:hover {
+        color: darken($lightBlue, 20%);
+      }
+    }
+  }
+}
+
+.featured-apps {
+
+}
+
+.projects {
+  .project {
+    margin-bottom: 2em;
+    cursor: pointer;
+    .mask {
+      position: relative;
+      overflow: hidden;
+      max-height: 250px;
+      picture, img {
+        filter: saturate(.5);
+        transform: scale(1);
+        backface-visibility: hidden;
+        transition: transform .5s, filter 1s;
+      }
+      &:hover {
+        picture, img {
+          filter: saturate(1.2);
+          transform: scale(2);
+        }
+        .caption {
+          opacity: 1;
+        }
+      }
+    }
+    .caption {
+      transition: all 1s;
+      opacity: 0;
+      width: 100%;
+      @include v-center;
+    }
+  }
+}
+
+.modal-body {
+  p {
+    margin-top: 1em;
+  }
+}
+.site-footer {
+  background: $charcoal;
+  color: $white;
+}

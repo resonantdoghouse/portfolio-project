@@ -1,0 +1,145 @@
+//- Content Variables for text, images and urls
+//- Loaded from project.json
+- var site_name = site_info['name']
+- var site_description = site_info['description']
+- var site_url = site_info["url"]
+- var site_logo = site_info["logo"]
+- var site_meta_description = site_info["meta_description"]
+- var num_projects = site_info['number_of_projects']
+- var project_image_name = site_info['projects_image_name']
+
+//- projects, add more variables for more projects using the same structure
+- var project1_title = project1['title']
+- var project2_title = project2['title']
+- var project3_title = project3['title']
+
+- var project1_description = project1['description']
+- var project2_description = project2['description']
+- var project3_description = project3['description']
+
+- var project1_description_long = project1['description-long']
+- var project2_description_long = project2['description-long']
+- var project3_description_long = project3['description-long']
+
+- var project1_url = project1['url']
+- var project2_url = project2['url']
+- var project3_url = project3['url']
+
+- var project1_url_name = project1['urlname']
+- var project2_url_name = project2['urlname']
+- var project3_url_name = project3['urlname']
+
+//- arrays for looping
+- var projects = [project1_title, project2_title, project3_title]
+- var project_descriptions = [project1_description, project2_description, project3_description]
+- var project_descriptions_long = [project1_description_long, project2_description_long, project3_description_long]
+- var project_urls = [project1_url, project2_url, project3_url]
+- var project_url_names = [project1_url_name, project2_url_name, project3_url_name]
+
+//- name of the file of the images for projects, Name the project images
+//- In a sequence e.g. project1, project2
+
+
+//- Begin Template
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title #{site_name} : #{site_description}
+    meta(name='description', content=site_meta_description )
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:300,400,700')
+    link(rel='stylesheet', href='css/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='js/min/bootstrap.min.js')
+
+    script document.createElement( "picture" ) // Picture element HTML5 shiv
+    script(src='js/min/picturefill.min.js')
+
+  body
+    <!--[if lt IE 8]>
+    p.browsehappy
+      | You are using an <strong>outdated</strong> browser.
+      | Please <a href="http://browsehappy.com/">upgrade your browser</a>
+      | to improve your experience.
+    <![endif]-->
+
+    //- Add your site or application content here
+    div.container
+      header.row
+        div.col-xs-6.col-sm-6.col-md-6
+          a(href=site_url)
+            img.title-logo(src=site_logo alt="Logo")
+
+        div.col-xs-6.col-sm-6.col-md-6.text-right
+          h1 #{site_name}
+          h4 #{site_description}
+
+      div.row
+        div.col-md-12
+          hr.grey-hr
+
+      div.row
+        div.col-md-12.banner
+          picture#banner
+            source(media="(min-width: 630px)"
+              srcset="img/bin/banner-large.jpg 1x, img/bin/banner-large-@2x.jpg 2x")
+            source(media="(min-width: 300px)"
+              srcset="img/bin/banner-medium.jpg 1x, img/bin/banner-medium-@2x.jpg 2x")
+            img(src="img/banner.jpg" alt="Portfolio Banner")
+          div(data-target="#projects").banner-text
+            h1.text-uppercase Projects
+            span.glyphicon.glyphicon-chevron-down(aria-hidden="true")
+
+      section.featured-work
+        header.row
+          div.col-md-12
+            h2.text-muted Featured Work
+
+      section.row.text-center.projects#projects
+        each val, index in projects
+          - var tmpProject = '#project' + (index+1)
+          - var tmpImg = 'img/bin/' + project_image_name + (index+1)
+          - var tmpImg2 = 'img/' + project_image_name + (index+1)
+          - var tmpProjectName = projects[index]
+          - var tmpProjectDescription = project_descriptions[index]
+          figure(data-toggle="modal" data-target=tmpProject).col-xs-12.col-sm-6.col-md-4.project
+            div.mask
+              picture
+                source(media="(min-width: 630px)" srcset=tmpImg +"-medium.jpg 1x," + tmpImg + "-medium-@2x.jpg 2x" )
+                source(media="(min-width: 300px)" srcset=tmpImg +"-small.jpg 1x," + tmpImg + "-small-@2x.jpg 2x")
+                img(src=tmpImg2 + ".jpg" alt="tile")
+              div.caption
+                p #{tmpProjectDescription}
+                h4 More Info
+            h3.text-uppercase #{tmpProjectName}
+
+    // Modal Windows for Projects
+    each val, index in projects
+      - var tmpProject = 'project' + (index+1)
+      - var tmpProjectName = projects[index]
+      - var tmpImg = 'img/bin/' + project_image_name + (index+1)
+      - var tmpImg2 = 'img/' + project_image_name + (index+1)
+      - var tmpProjectDescription = project_descriptions_long[index]
+      - var tmpProjectUrl = project_urls[index]
+      - var tmpProjectUrlName = project_url_names[index]
+      div.modal(id=tmpProject role="dialog")
+        div.modal-dialog(role="document")
+          section.modal-content
+            header.modal-header
+              h4.modal-title.pull-left #{tmpProjectName}
+              button.btn.btn-primary.pull-right(data-dismiss="modal")
+                span.glyphicon.glyphicon-remove(aria-hidden="true")
+            div.modal-body
+              picture(data-toggle="modal" data-target=tmpProject)
+                source(media="(min-width: 630px)" srcset=tmpImg +"-large.jpg 1x," + tmpImg + "-large-@2x.jpg 2x" )
+                source(media="(min-width: 300px)" srcset=tmpImg +"-medium.jpg 1x," + tmpImg + "-medium-@2x.jpg 2x")
+                img(src=tmpImg2 + ".jpg" alt="Project Image")
+              p.text-center #{tmpProjectDescription}
+                br
+                a(href=tmpProjectUrl target="_blank") #{tmpProjectUrlName}
+
+
+    script(src='js/custom.js')

@@ -1,0 +1,108 @@
+.grey-hr {
+  border: 0;
+  background: #7d97ad;
+  height: 3px;
+  margin: 1% 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #2d3c49;
+  font-weight: 400; }
+
+img {
+  max-width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; }
+
+a {
+  color: #02b3e4; }
+
+.no-padding {
+  padding: 0; }
+
+.text-muted {
+  color: #7d97ad; }
+
+.text-thin {
+  font-weight: 100; }
+
+.title-super {
+  font-size: 60px;
+  font-weight: 300; }
+
+.title-logo {
+  margin-top: 20px;
+  height: 100px;
+  max-width: 100%; }
+
+.banner {
+  position: relative;
+  overflow: hidden; }
+  .banner picture {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    transition: filter 1s; }
+  .banner:hover picture {
+    filter: contrast(2); }
+  .banner:hover .banner-text {
+    color: #fff; }
+    .banner:hover .banner-text h1 {
+      color: #97D6DE;
+      text-shadow: -1px -1px 0 #2d3c49, 1px -1px 0 #2d3c49, -1px 1px 0 #2d3c49, 1px 1px 0 #2d3c49; }
+    .banner:hover .banner-text .glyphicon {
+      color: #97D6DE; }
+  .banner .banner-text {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 1.5s;
+    width: 100%;
+    text-align: center; }
+    .banner .banner-text h1 {
+      text-rendering: optimizeLegibility;
+      text-shadow: -1px -1px 0 rgba(151, 214, 222, 0.25), 1px -1px 0 rgba(151, 214, 222, 0.25), -1px 1px 0 rgba(151, 214, 222, 0.25), 1px 1px 0 rgba(151, 214, 222, 0.25);
+      transition: color 1s;
+      font-size: 3em;
+      color: #2d3c49; }
+    .banner .banner-text .glyphicon {
+      text-shadow: -1px -1px 0 rgba(151, 214, 222, 0.25), 1px -1px 0 rgba(151, 214, 222, 0.25), -1px 1px 0 rgba(151, 214, 222, 0.25), 1px 1px 0 rgba(151, 214, 222, 0.25);
+      transition: color .5s;
+      color: #2d3c49;
+      font-size: 3em; }
+      .banner .banner-text .glyphicon:hover {
+        color: #4ab7c5; }
+
+.projects .project {
+  margin-bottom: 2em;
+  cursor: pointer; }
+  .projects .project .mask {
+    position: relative;
+    overflow: hidden;
+    max-height: 250px; }
+    .projects .project .mask picture, .projects .project .mask img {
+      filter: saturate(0.5);
+      transform: scale(1);
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      transition: transform .5s, filter 1s; }
+    .projects .project .mask:hover picture, .projects .project .mask:hover img {
+      filter: saturate(1.2);
+      transform: scale(2); }
+    .projects .project .mask:hover .caption {
+      opacity: 1; }
+  .projects .project .caption {
+    transition: all 1s;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.modal-body p {
+  margin-top: 1em; }
+
+.site-footer {
+  background: #2d3c49;
+  color: #fff; }
