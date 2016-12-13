@@ -9,7 +9,7 @@ you have to edit the index.pug file and copy the new vars. Then simply update th
 Project images should be named, project.jpg
 
 Using pug was a bit of an experiment, I've used haml in the past.
-The result is a bit convoluted but I learned a bit about pug, json, and gulp :)
+The result is a bit convoluted but I learned a bit about pug, json, and gulp \_(ツ)_/¯
 
 ### Project Features
   - Bootstrap 3
