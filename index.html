@@ -4,16 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>BCW : A Responsive Portfolio</title>
-    <meta name="description" content="Portfolio project Udacity, resonsive images,
-      gulp, bootstrap, jade, sass">
+    <meta name="description" content="Portfolio project Udacity, resonsive images, gulp, bootstrap, jade, sass">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/min/bootstrap.min.js"></script>
-    <script>document.createElement( "picture" ) // Picture element HTML5 shiv</script>
-    <script src="js/min/picturefill.min.js"></script>
   </head>
   <body><!--[if lt IE 8]>
     <p class="browsehappy">
@@ -22,32 +17,21 @@
       to improve your experience.
     </p><![endif]-->
     <div class="container">
-      <header class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6"><a href="http://buildcreativewebsites.com">
-          <img class="title-logo" src="img/logo.svg" alt="Logo"></a>
-        </div>
+      <header class="row site-header">
+        <div class="col-xs-6 col-sm-6 col-md-6"><a href="http://buildcreativewebsites.com"><img class="title-logo" src="img/logo.svg" alt="Logo"></a></div>
         <div class="col-xs-6 col-sm-6 col-md-6 text-right">
           <h1>BCW</h1>
           <h4>A Responsive Portfolio</h4>
         </div>
       </header>
       <div class="row">
-        <div class="col-md-12">
-          <hr class="grey-hr">
-        </div>
-      </div>
-      <div class="row">
         <div class="col-md-12 banner">
           <picture id="banner">
-            <source media="(min-width: 630px)"
-              srcset="img/bin/banner-large.jpg 1x, img/bin/banner-large-@2x.jpg 2x">
-            <source media="(min-width: 300px)"
-              srcset="img/bin/banner-medium.jpg 1x, img/bin/banner-medium-@2x.jpg 2x">
-            <img src="img/banner.jpg" alt="Portfolio Banner">
+            <source media="(min-width: 630px)" srcset="img/bin/banner-large.jpg 1x, img/bin/banner-large-@2x.jpg 2x">
+            <source media="(min-width: 300px)" srcset="img/bin/banner-medium.jpg 1x, img/bin/banner-medium-@2x.jpg 2x"><img src="img/banner.jpg" alt="Portfolio Banner">
           </picture>
           <div class="banner-text" data-target="#projects">
-            <h1 class="text-uppercase">Projects</h1>
-            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            <h1 class="text-uppercase">Projects</h1><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
           </div>
         </div>
       </div>
@@ -59,15 +43,11 @@
         </header>
       </section>
       <section class="row text-center projects" id="projects">
-        <figure class="col-xs-12 col-sm-6 col-md-4 project" data-toggle="modal"
-          data-target="#project1">
+        <figure class="col-xs-12 col-sm-6 col-md-4 project" data-toggle="modal" data-target="#project1">
           <div class="mask">
             <picture>
-              <source media="(min-width: 630px)"
-                srcset="img/bin/project1-medium.jpg 1x,img/bin/project1-medium-@2x.jpg 2x">
-              <source media="(min-width: 300px)"
-                srcset="img/bin/project1-small.jpg 1x,img/bin/project1-small-@2x.jpg 2x">
-                <img src="img/project1.jpg" alt="tile">
+              <source media="(min-width: 630px)" srcset="img/bin/project1-medium.jpg 1x,img/bin/project1-medium-@2x.jpg 2x">
+              <source media="(min-width: 300px)" srcset="img/bin/project1-small.jpg 1x,img/bin/project1-small-@2x.jpg 2x"><img src="img/project1.jpg" alt="tile">
             </picture>
             <div class="caption">
               <p>The sky calls to us concept of the number one?</p>
@@ -76,15 +56,11 @@
           </div>
           <h3 class="text-uppercase">Cat App</h3>
         </figure>
-        <figure class="col-xs-12 col-sm-6 col-md-4 project" data-toggle="modal"
-          data-target="#project2">
+        <figure class="col-xs-12 col-sm-6 col-md-4 project" data-toggle="modal" data-target="#project2">
           <div class="mask">
             <picture>
-              <source media="(min-width: 630px)"
-                srcset="img/bin/project2-medium.jpg 1x,img/bin/project2-medium-@2x.jpg 2x">
-              <source media="(min-width: 300px)"
-                srcset="img/bin/project2-small.jpg 1x,img/bin/project2-small-@2x.jpg 2x">
-                <img src="img/project2.jpg" alt="tile">
+              <source media="(min-width: 630px)" srcset="img/bin/project2-medium.jpg 1x,img/bin/project2-medium-@2x.jpg 2x">
+              <source media="(min-width: 300px)" srcset="img/bin/project2-small.jpg 1x,img/bin/project2-small-@2x.jpg 2x"><img src="img/project2.jpg" alt="tile">
             </picture>
             <div class="caption">
               <p>Sea of Tranquility dream of the mind's eye.</p>
@@ -93,15 +69,11 @@
           </div>
           <h3 class="text-uppercase">Unsplash Tool</h3>
         </figure>
-        <figure class="col-xs-12 col-sm-6 col-md-4 project" data-toggle="modal"
-          data-target="#project3">
+        <figure class="col-xs-12 col-sm-6 col-md-4 project" data-toggle="modal" data-target="#project3">
           <div class="mask">
             <picture>
-              <source media="(min-width: 630px)"
-                srcset="img/bin/project3-medium.jpg 1x,img/bin/project3-medium-@2x.jpg 2x">
-              <source media="(min-width: 300px)"
-                srcset="img/bin/project3-small.jpg 1x,img/bin/project3-small-@2x.jpg 2x">
-                <img src="img/project3.jpg" alt="tile">
+              <source media="(min-width: 630px)" srcset="img/bin/project3-medium.jpg 1x,img/bin/project3-medium-@2x.jpg 2x">
+              <source media="(min-width: 300px)" srcset="img/bin/project3-small.jpg 1x,img/bin/project3-small-@2x.jpg 2x"><img src="img/project3.jpg" alt="tile">
             </picture>
             <div class="caption">
               <p>Apollonius of Perga rich in heavy atoms.</p>
@@ -118,23 +90,14 @@
         <section class="modal-content">
           <header class="modal-header">
             <h4 class="modal-title pull-left">Cat App</h4>
-            <button class="btn btn-primary pull-right" data-dismiss="modal">
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            </button>
+            <button class="btn btn-primary pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
           </header>
           <div class="modal-body">
             <picture data-toggle="modal" data-target="project1">
-              <source media="(min-width: 630px)"
-                srcset="img/bin/project1-large.jpg 1x,img/bin/project1-large-@2x.jpg 2x">
-              <source media="(min-width: 300px)"
-                srcset="img/bin/project1-medium.jpg 1x,img/bin/project1-medium-@2x.jpg 2x">
-              <img src="img/project1.jpg" alt="Project Image">
+              <source media="(min-width: 630px)" srcset="img/bin/project1-large.jpg 1x,img/bin/project1-large-@2x.jpg 2x">
+              <source media="(min-width: 300px)" srcset="img/bin/project1-medium.jpg 1x,img/bin/project1-medium-@2x.jpg 2x"><img src="img/project1.jpg" alt="Project Image">
             </picture>
-            <p class="text-center">The sky calls to us concept of the number one?
-              Rich in mystery courage of our questions kindling the energy
-              hidden in matter hundreds of thousands at the edge of forever<br>
-              <a href="http://catKittyCat.com" target="_blank">Cat Kitty Cat</a>
-            </p>
+            <p class="text-center">The sky calls to us concept of the number one? Rich in mystery courage of our questions kindling the energy hidden in matter hundreds of thousands at the edge of forever<br><a href="http://catKittyCat.com" target="_blank">Cat Kitty Cat</a></p>
           </div>
         </section>
       </div>
@@ -144,25 +107,14 @@
         <section class="modal-content">
           <header class="modal-header">
             <h4 class="modal-title pull-left">Unsplash Tool</h4>
-            <button class="btn btn-primary pull-right" data-dismiss="modal">
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            </button>
+            <button class="btn btn-primary pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
           </header>
           <div class="modal-body">
             <picture data-toggle="modal" data-target="project2">
-              <source media="(min-width: 630px)"
-                srcset="img/bin/project2-large.jpg 1x,img/bin/project2-large-@2x.jpg 2x">
-              <source media="(min-width: 300px)"
-                srcset="img/bin/project2-medium.jpg 1x,img/bin/project2-medium-@2x.jpg 2x">
-              <img src="img/project2.jpg" alt="Project Image">
+              <source media="(min-width: 630px)" srcset="img/bin/project2-large.jpg 1x,img/bin/project2-large-@2x.jpg 2x">
+              <source media="(min-width: 300px)" srcset="img/bin/project2-medium.jpg 1x,img/bin/project2-medium-@2x.jpg 2x"><img src="img/project2.jpg" alt="Project Image">
             </picture>
-            <p class="text-center">Sea of Tranquility dream of the mind's eye,
-              vanquish the impossible rings of Uranus. Prime number, rings of
-              Uranus, Jean-François Champollion finite but unbounded brain is
-              the seed of intelligence?<br>
-              <a href="http://testinggrounds.info/unsplash/"
-                target="_blank">Unsplash ImageTool</a>
-            </p>
+            <p class="text-center">Sea of Tranquility dream of the mind's eye, vanquish the impossible rings of Uranus. Prime number, rings of Uranus, Jean-François Champollion finite but unbounded brain is the seed of intelligence?<br><a href="http://testinggrounds.info/unsplash/" target="_blank">Unsplash ImageTool</a></p>
           </div>
         </section>
       </div>
@@ -172,28 +124,22 @@
         <section class="modal-content">
           <header class="modal-header">
             <h4 class="modal-title pull-left">FingerBoard</h4>
-            <button class="btn btn-primary pull-right" data-dismiss="modal">
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            </button>
+            <button class="btn btn-primary pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
           </header>
           <div class="modal-body">
             <picture data-toggle="modal" data-target="project3">
-              <source media="(min-width: 630px)"
-                srcset="img/bin/project3-large.jpg 1x,img/bin/project3-large-@2x.jpg 2x">
-              <source media="(min-width: 300px)"
-                srcset="img/bin/project3-medium.jpg 1x,img/bin/project3-medium-@2x.jpg 2x">
-              <img src="img/project3.jpg" alt="Project Image">
+              <source media="(min-width: 630px)" srcset="img/bin/project3-large.jpg 1x,img/bin/project3-large-@2x.jpg 2x">
+              <source media="(min-width: 300px)" srcset="img/bin/project3-medium.jpg 1x,img/bin/project3-medium-@2x.jpg 2x"><img src="img/project3.jpg" alt="Project Image">
             </picture>
-            <p class="text-center">Apollonius of Perga rich in heavy atoms.
-              Citizens of distant epochs? Prime number Apollonius of Perga, how
-              far away decipherment worldlets.<br>
-              <a href="http://testinggrounds.info/fingerboard/fretboard.html"
-                target="_blank">FingerBoard Chart</a>
-            </p>
+            <p class="text-center">Apollonius of Perga rich in heavy atoms. Citizens of distant epochs? Prime number Apollonius of Perga, how far away decipherment worldlets.<br><a href="http://testinggrounds.info/fingerboard/fretboard.html" target="_blank">FingerBoard Chart</a></p>
           </div>
         </section>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/min/bootstrap.min.js"></script>
+    <script>document.createElement( "picture" ) // Picture element HTML5 shiv</script>
+    <script src="js/min/picturefill.min.js"></script>
     <script src="js/custom.js"></script>
   </body>
 </html>

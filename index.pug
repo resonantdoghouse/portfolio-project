@@ -52,11 +52,7 @@ html(lang="en")
     link(rel='stylesheet', href='css/bootstrap.min.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:300,400,700')
     link(rel='stylesheet', href='css/style.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
-    script(src='js/min/bootstrap.min.js')
 
-    script document.createElement( "picture" ) // Picture element HTML5 shiv
-    script(src='js/min/picturefill.min.js')
 
   body
     <!--[if lt IE 8]>
@@ -68,7 +64,7 @@ html(lang="en")
 
     //- Add your site or application content here
     div.container
-      header.row
+      header.row.site-header
         div.col-xs-6.col-sm-6.col-md-6
           a(href=site_url)
             img.title-logo(src=site_logo alt="Logo")
@@ -76,10 +72,6 @@ html(lang="en")
         div.col-xs-6.col-sm-6.col-md-6.text-right
           h1 #{site_name}
           h4 #{site_description}
-
-      div.row
-        div.col-md-12
-          hr.grey-hr
 
       div.row
         div.col-md-12.banner
@@ -141,5 +133,8 @@ html(lang="en")
                 br
                 a(href=tmpProjectUrl target="_blank") #{tmpProjectUrlName}
 
-
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='js/min/bootstrap.min.js')
+    script document.createElement( "picture" ) // Picture element HTML5 shiv
+    script(src='js/min/picturefill.min.js')
     script(src='js/custom.js')
