@@ -26,5 +26,8 @@
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gulp-jshint": "*",
+    "gulp-concat": "*"
+  }
 }
