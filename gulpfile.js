@@ -20,107 +20,123 @@ gulp.task("debug", done => {
   done();
 });
 
-gulp.task('pug',gulp.series(function buildHTML() {
-  return gulp.src('*.pug')
-  .pipe(data(function(file) {
-    return JSON.parse(
-      fs.readFileSync('./project.json')
-    );
-  } ))
-  .pipe(pug({
-    pretty: true
-    // Your options in here.
-  }))
-  .pipe(gulp.dest('./'));
-}));
+gulp.task(
+  "pug",
+  gulp.series(function buildHTML() {
+    return gulp
+      .src("*.pug")
+      .pipe(
+        data(function(file) {
+          return JSON.parse(fs.readFileSync("./project.json"));
+        })
+      )
+      .pipe(
+        pug({
+          pretty: true
+        })
+      )
+      .pipe(gulp.dest("./"));
+  })
+);
 
+gulp.task(
+  "images",
+  gulp.series(function() {
+    return gulp
+      .src("img/*{jpg,png}")
+      .pipe(
+        $.responsive(
+          {
+            "*.jpg": [
+              {
+                width: 300,
+                rename: {
+                  suffix: "-small",
+                  extname: ".jpg"
+                },
+                format: "jpeg"
+              },
+              {
+                width: 600,
+                rename: {
+                  suffix: "-small-@2x",
+                  extname: ".jpg"
+                }
+                // format option can be omitted because
+                // format of output image is detected from new filename
+                // format: 'jpeg'
+              },
+              {
+                width: 550,
+                rename: {
+                  suffix: "-medium",
+                  extname: ".jpg"
+                },
+                format: "jpeg"
+              },
+              {
+                width: 1150,
+                rename: {
+                  suffix: "-medium-@2x",
+                  extname: ".jpg"
+                }
+              },
+              {
+                width: 1170,
+                rename: {
+                  suffix: "-large",
+                  extname: ".jpg"
+                },
+                /* Do not enlarge the output image if the input image are already less
+        than the required dimensions. */
+                withoutEnlargement: true
+              },
+              {
+                width: 2340,
+                rename: {
+                  suffix: "-large-@2x",
+                  extname: ".jpg"
+                },
+                withoutEnlargement: true
+              },
+              {
+                // Convert images to the webp format
+                width: 630,
+                rename: {
+                  suffix: "-630px",
+                  extname: ".webp"
+                }
+              }
+            ]
+          },
+          {
+            // Global configuration for all images
+            // The output quality for JPEG, WebP and TIFF output formats
+            quality: 80,
+            // Use progressive (interlace) scan for JPEG and PNG output
+            progressive: true,
+            // Strip all metadata
+            withMetadata: false,
+            // Do not emit the error when image is enlarged.
+            errorOnEnlargement: false
+          }
+        )
+      )
+      .pipe(gulp.dest("img/bin"));
+  })
+);
 
-gulp.task('default', gulp.series(['debug', 'pug'], function browserSyncWatch() {
+gulp.task(
+  "default",
+  gulp.series(["debug", "pug","images"], function browserSyncWatch() {
     // gulp.watch('sass/**/*.scss', ['styles']);
-    gulp.watch('*.pug', gulp.series(['pug'])).on('change', browserSync.reload);
+    gulp.watch("*.pug", gulp.series(["pug"])).on("change", browserSync.reload);
     //gulp.watch('js/**/*.js', ['lint']);
     browserSync.init({
-        server: './'
+      server: "./"
     });
-
-}));
-
-
-
-
-// gulp.task('images', function () {
-//   return gulp.src('img/*{jpg,png}')
-//     .pipe($.responsive({
-//       '*.jpg': [
-//       {
-//         width: 300,
-//         rename: {
-//           suffix: '-small',
-//           extname: '.jpg',
-//         },
-//         format: 'jpeg',
-//       }, {
-//         width: 600,
-//         rename: {
-//           suffix: '-small-@2x',
-//           extname: '.jpg',
-//         },
-//         // format option can be omitted because
-//         // format of output image is detected from new filename
-//         // format: 'jpeg'
-//       },
-//       {
-//         width: 550,
-//         rename: {
-//           suffix: '-medium',
-//           extname: '.jpg',
-//         },
-//         format: 'jpeg',
-//       }, {
-//         width: 1150,
-//         rename: {
-//           suffix: '-medium-@2x',
-//           extname: '.jpg',
-//         },
-//       }, {
-//         width: 1170,
-//         rename: {
-//           suffix: '-large',
-//           extname: '.jpg',
-//         },
-//         /* Do not enlarge the output image if the input image are already less
-//         than the required dimensions. */
-//         withoutEnlargement: true,
-//       },
-//       {
-//         width: 2340,
-//         rename: {
-//           suffix: '-large-@2x',
-//           extname: '.jpg',
-//         },
-//         withoutEnlargement: true,
-//       },
-//       {
-//         // Convert images to the webp format
-//         width: 630,
-//         rename: {
-//           suffix: '-630px',
-//           extname: '.webp',
-//         },
-//       }],
-//     }, {
-//       // Global configuration for all images
-//       // The output quality for JPEG, WebP and TIFF output formats
-//       quality: 80,
-//       // Use progressive (interlace) scan for JPEG and PNG output
-//       progressive: true,
-//       // Strip all metadata
-//       withMetadata: false,
-//       // Do not emit the error when image is enlarged.
-//       errorOnEnlargement: false,
-//     }))
-//     .pipe(gulp.dest('img/bin'));
-// });
+  })
+);
 
 // gulp.task('styles', function() {
 //     gulp.src('sass/**/*.scss')
