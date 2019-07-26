@@ -11,25 +11,20 @@
   "devDependencies": {
     "browser-sync": "^2.18.2",
     "eslint": "^3.11.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.1",
     "gulp-data": "^1.2.1",
     "gulp-eslint": "^3.0.1",
     "gulp-image-resize": "^0.13.1",
-    "gulp-jade": "^1.1.0",
-    "gulp-jasmine-phantom": "^3.0.0",
     "gulp-jshint": "^2.0.4",
     "gulp-load-plugins": "^1.4.0",
     "gulp-pug": "^3.2.0",
-    "gulp-pug-beautify": "0.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-responsive": "^2.6.0",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.4"
   },
-  "dependencies": {
-    "gulp": "^3.9.1"
-  }
+  "dependencies": {}
 }

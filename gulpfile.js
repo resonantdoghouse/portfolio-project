@@ -1,17 +1,17 @@
 /*eslint-env node */
 
-var gulp = require('gulp');
-var data = require('gulp-data');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
-//var eslint = require('gulp-eslint');
-var jasmine = require('gulp-jasmine-phantom');
-var pug = require('gulp-pug');
-var fs = require('fs');
+const gulp = require('gulp');
+const data = require('gulp-data');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+//const eslint = require('gulp-eslint');
 
-var responsive = require('gulp-responsive');
-var $ = require('gulp-load-plugins')();
+const pug = require('gulp-pug');
+const fs = require('fs');
+
+const responsive = require('gulp-responsive');
+const $ = require('gulp-load-plugins')();
 
 gulp.task('default', ['styles', 'images', 'pug'], function() {
     gulp.watch('sass/**/*.scss', ['styles']);
