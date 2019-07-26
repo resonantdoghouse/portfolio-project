@@ -1,8 +1,8 @@
 $(".banner-text").click(function() {
 
-    var defaultAnchorOffset = 0;
+    let defaultAnchorOffset = 0;
 
-    var anchor = $(this).attr('data-target');
+    const anchor = $(this).attr('data-target');
 
     $('html,body').animate({
         scrollTop: $(anchor).offset().top

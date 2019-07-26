@@ -1,7 +1,7 @@
 {
   "site_info": {
-    "name": "BCW",
-    "description": "A Responsive Portfolio",
+    "name": "Portfolio",
+    "description": "Built with Gulp, using pug, image processing etc...",
     "logo": "img/logo.svg",
     "url": "http://buildcreativewebsites.com",
     "urlname": "test",
@@ -17,6 +17,7 @@
     "url": "http://catKittyCat.com",
     "urlname": "Cat Kitty Cat"
   },
+
   "project2": {
     "title": "Unsplash Tool",
     "description": "Sea of Tranquility dream of the mind's eye.",
@@ -24,6 +25,7 @@
     "url": "http://testinggrounds.info/unsplash/",
     "urlname": "Unsplash ImageTool"
   },
+
   "project3": {
     "title": "FingerBoard",
     "description": "Apollonius of Perga rich in heavy atoms.",

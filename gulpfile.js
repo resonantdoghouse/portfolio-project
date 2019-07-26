@@ -5,20 +5,28 @@ const data = require("gulp-data");
 const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
 const browserSync = require("browser-sync").create();
-//const eslint = require('gulp-eslint');
+
+const jasmine = require('gulp-jasmine');
+const eslint = require('gulp-eslint');
 
 const pug = require("gulp-pug");
 const fs = require("fs");
 
-const responsive = require("gulp-responsive");
 const $ = require("gulp-load-plugins")();
-$.jshint = require("gulp-jshint");
-$.concat = require("gulp-concat");
+// $.jshint = require("gulp-jshint");
+// $.concat = require("gulp-concat");
 
 gulp.task("debug", done => {
   console.log("debug task");
   done();
 });
+
+gulp.task('tests', gulp.series(function jasmineTests(){
+    return gulp.src('spec/tests.js')
+        // gulp-jasmine works on filepaths so you can't have any plugins before it
+        .pipe(jasmine())
+      }
+));
 
 gulp.task(
   "pug",
@@ -41,7 +49,7 @@ gulp.task(
 
 gulp.task(
   "images",
-  gulp.series(function() {
+  gulp.series(function processImages() {
     return gulp
       .src("img/*{jpg,png}")
       .pipe(
@@ -62,9 +70,6 @@ gulp.task(
                   suffix: "-small-@2x",
                   extname: ".jpg"
                 }
-                // format option can be omitted because
-                // format of output image is detected from new filename
-                // format: 'jpeg'
               },
               {
                 width: 550,
@@ -87,8 +92,6 @@ gulp.task(
                   suffix: "-large",
                   extname: ".jpg"
                 },
-                /* Do not enlarge the output image if the input image are already less
-        than the required dimensions. */
                 withoutEnlargement: true
               },
               {
@@ -110,14 +113,12 @@ gulp.task(
             ]
           },
           {
-            // Global configuration for all images
-            // The output quality for JPEG, WebP and TIFF output formats
+            // Global configuration for all images output quality
             quality: 80,
             // Use progressive (interlace) scan for JPEG and PNG output
             progressive: true,
             // Strip all metadata
             withMetadata: false,
-            // Do not emit the error when image is enlarged.
             errorOnEnlargement: false
           }
         )
@@ -127,8 +128,41 @@ gulp.task(
 );
 
 gulp.task(
+  "styles",
+  gulp.series(function processStyles() {
+    return gulp
+      .src("sass/**/*.scss")
+      .pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
+      .pipe(
+        autoprefixer({
+          browsers: ["last 2 versions"]
+        })
+      )
+      .pipe(gulp.dest("./css"))
+      .pipe(browserSync.stream());
+  })
+);
+
+
+
+
+gulp.task('lint', gulp.series(function linter() {
+  return gulp.src(['js/**/*.js', '!js/min/*.js'])
+      // eslint() attaches the lint output to the eslint property
+      // of the file object so it can be used by other modules.
+      .pipe(eslint())
+      // eslint.format() outputs the lint results to the console.
+      // Alternatively use eslint.formatEach() (see Docs).
+      .pipe(eslint.format())
+      // To have the process exit with an error code (1) on
+      // lint error, return the stream and pipe to failOnError last.
+      .pipe(eslint.failOnError());
+}));
+
+
+gulp.task(
   "default",
-  gulp.series(["debug", "pug","images"], function browserSyncWatch() {
+  gulp.series(["debug", "pug", "styles"], function browserSyncWatch() {
     // gulp.watch('sass/**/*.scss', ['styles']);
     gulp.watch("*.pug", gulp.series(["pug"])).on("change", browserSync.reload);
     //gulp.watch('js/**/*.js', ['lint']);
@@ -137,34 +171,3 @@ gulp.task(
     });
   })
 );
-
-// gulp.task('styles', function() {
-//     gulp.src('sass/**/*.scss')
-//         .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-//         .pipe(autoprefixer({
-//             browsers: ['last 2 versions']
-//         }))
-//         .pipe(gulp.dest('./css'))
-//         .pipe(browserSync.stream());
-// });
-
-// gulp.task('lint', function () {
-//     return gulp.src(['js/**/*.js', '!js/min/*.js'])
-//         // eslint() attaches the lint output to the eslint property
-//         // of the file object so it can be used by other modules.
-//         .pipe(eslint())
-//         // eslint.format() outputs the lint results to the console.
-//         // Alternatively use eslint.formatEach() (see Docs).
-//         .pipe(eslint.format())
-//         // To have the process exit with an error code (1) on
-//         // lint error, return the stream and pipe to failOnError last.
-//         .pipe(eslint.failOnError());
-// });
-
-// gulp.task('tests', function () {
-//     gulp.src('tests/spec/extraSpec.js')
-//         .pipe(jasmine({
-//             integration: true,
-//             vendor: 'js/**/*.js'
-//         }));
-// });
